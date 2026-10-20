@@ -36,7 +36,7 @@ jobs:
 
       - name: Restore node_modules cache
         id: cache-node-modules
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .build/node_modules_cache
           key: "node_modules-compile-${{ hashFiles('.build/packagelockhash') }}"
@@ -85,7 +85,7 @@ jobs:
 
       - name: Restore built-in extensions cache
         id: cache-builtin-extensions
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           enableCrossOsArchive: true
           path: .build/builtInExtensions
@@ -192,7 +192,7 @@ jobs:
           node-version-file: extensions/copilot/.nvmrc
 
       - name: Restore build cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         id: build-cache
         with:
           key: copilot-build_cache-${{ hashFiles('extensions/copilot/build/.cachesalt', 'extensions/copilot/package-lock.json') }}
@@ -276,7 +276,7 @@ jobs:
           sudo apt-get install -y xvfb libgtk-3-0 libgbm1
 
       - name: Restore build cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         id: build-cache
         with:
           key: copilot-build_cache-${{ hashFiles('extensions/copilot/build/.cachesalt', 'extensions/copilot/package-lock.json') }}
@@ -379,7 +379,7 @@ jobs:
         run: pip install setuptools
 
       - name: Restore build cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         id: build-cache
         with:
           key: copilot-windows-build_cache-${{ hashFiles('extensions/copilot/build/.cachesalt', 'extensions/copilot/package-lock.json') }}
